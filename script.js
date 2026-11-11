@@ -13,18 +13,72 @@
     "Reports that engineers can actually remediate from."
   ];
   var el = document.getElementById("typed");
-  var li = 0, ci = 0, deleting = false;
-  function tick() {
-    var full = lines[li];
-    if (reduce) { el.textContent = full; return; }
-    el.textContent = full.slice(0, ci);
-    if (!deleting && ci < full.length) { ci++; return setTimeout(tick, 38); }
-    if (!deleting) { deleting = true; return setTimeout(tick, 1600); }
-    if (ci > 0) { ci--; return setTimeout(tick, 16); }
-    deleting = false; li = (li + 1) % lines.length;
-    setTimeout(tick, 350);
+  var box = el.parentNode;
+  var noise = "!-_/\\[]{}=+*^?#01$%";
+
+  function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  // Human-like typing with slightly uneven key timing
+  async function typeLine(text) {
+    for (var i = 1; i <= text.length; i++) {
+      el.textContent = text.slice(0, i);
+      await sleep(28 + Math.random() * 50 + (text[i - 1] === " " ? 30 : 0));
+    }
   }
-  tick();
+
+  // Backspace the current line
+  async function eraseLine() {
+    var t = el.textContent;
+    while (t.length) {
+      t = t.slice(0, -1);
+      el.textContent = t;
+      await sleep(14);
+    }
+  }
+
+  // Scramble the current line into the next one, letter by letter
+  async function morph(to) {
+    var from = el.textContent, len = Math.max(from.length, to.length), cells = [], frames = 46;
+    for (var i = 0; i < len; i++) {
+      var start = Math.floor(Math.random() * 18);
+      cells.push({ start: start, end: start + 8 + Math.floor(Math.random() * 18) });
+    }
+    box.classList.add("glitch");
+    for (var f = 0; f <= frames; f++) {
+      var out = "";
+      for (var j = 0; j < len; j++) {
+        var c = cells[j];
+        if (f >= c.end) out += to[j] || "";
+        else if (f >= c.start) out += '<span class="scr">' + noise[Math.floor(Math.random() * noise.length)] + "</span>";
+        else out += from[j] || "";
+      }
+      el.innerHTML = out;
+      await sleep(32);
+    }
+    box.classList.remove("glitch");
+    el.textContent = to;
+  }
+
+  // Alternate between two effects: scramble-morph, then backspace-and-retype
+  async function run() {
+    var i = 0, n = 0;
+    await typeLine(lines[0]);
+    while (true) {
+      await sleep(2000);
+      var next = lines[(i + 1) % lines.length];
+      if (n % 2 === 0) {
+        await morph(next);
+      } else {
+        await eraseLine();
+        await sleep(250);
+        await typeLine(next);
+      }
+      i = (i + 1) % lines.length;
+      n++;
+    }
+  }
+
+  if (reduce) { el.textContent = lines[0]; } else { run(); }
 
   // Count-up stats
   function countUp(node) {
