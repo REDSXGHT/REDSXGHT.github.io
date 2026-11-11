@@ -5,6 +5,20 @@
   // Footer year
   document.getElementById("year").textContent = new Date().getFullYear();
 
+  // Light / dark theme toggle (saved in localStorage when available)
+  var root = document.documentElement;
+  var tbtn = document.getElementById("theme-toggle");
+  function applyTheme(t) {
+    root.setAttribute("data-theme", t);
+    tbtn.setAttribute("aria-label", t === "light" ? "Switch to dark mode" : "Switch to light mode");
+  }
+  applyTheme(root.getAttribute("data-theme") === "light" ? "light" : "dark");
+  tbtn.addEventListener("click", function () {
+    var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+    applyTheme(next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+
   // Typing effect
   var lines = [
     "Active Directory attack paths, from foothold to domain admin.",
@@ -126,9 +140,12 @@
   resize();
   window.addEventListener("resize", resize);
   setInterval(function () {
-    ctx.fillStyle = "rgba(7,11,10,0.08)";
+    var cs = getComputedStyle(root);
+    ctx.globalAlpha = 0.08;
+    ctx.fillStyle = cs.getPropertyValue("--bg").trim() || "#070b0a";
     ctx.fillRect(0, 0, c.width, c.height);
-    ctx.fillStyle = "#2dff9a";
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = cs.getPropertyValue("--accent").trim() || "#2dff9a";
     ctx.font = size + "px monospace";
     drops.forEach(function (y, i) {
       ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * size, y * size);
