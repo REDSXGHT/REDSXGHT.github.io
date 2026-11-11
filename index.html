@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tishan Guha Roy | Cyber Security Consultant</title>
+  <meta name="description" content="Cyber Security Consultant specialising in Infrastructure VAPT, Red Team, Active Directory and OT security assessments.">
+  <meta property="og:title" content="Tishan Guha Roy | Cyber Security Consultant">
+  <meta property="og:description" content="VAPT, Red Team, Active Directory and OT security.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="matrix" aria-hidden="true"></canvas>
+
+  <header class="nav">
+    <a href="#top" class="logo">redsxght<span class="blink">_</span></a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#engagements">Engagements</a>
+      <a href="#certs">Certs</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact" class="btn-small">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <p class="prompt">root@redsxght:~$ whoami</p>
+      <h1>Tishan <span class="accent">Guha Roy</span></h1>
+      <p class="role">Cyber Security Consultant</p>
+      <p class="typing"><span id="typed"></span><span class="blink">|</span></p>
+      <div class="cta">
+        <a class="btn" href="#contact">Get in touch</a>
+        <a class="btn ghost" href="https://linkedin.com/in/redsxght" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="Tishan_Guha_Roy_Resume.pdf" download>Resume</a>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats" aria-label="Highlights">
+      <div class="stat"><span class="num" data-count="3">0</span><span class="lbl">Years in offensive security</span></div>
+      <div class="stat"><span class="num" data-count="600" data-suffix="+">0</span><span class="lbl">Endpoints assessed in one engagement</span></div>
+      <div class="stat"><span class="num" data-count="8">0</span><span class="lbl">Industry certifications</span></div>
+      <div class="stat"><span class="num" data-count="70" data-suffix="+">0</span><span class="lbl">Students trained</span></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h2><span class="idx">01</span> About</h2>
+      <div class="about-grid">
+        <p>
+          I'm a cyber security consultant with three years of experience delivering Infrastructure VAPT,
+          Red Team and OT security assessments. My focus is Active Directory security, network penetration
+          testing and vulnerability assessment, and, just as importantly, turning findings into practical
+          remediation that enterprise and industrial teams can actually act on.
+        </p>
+        <ul class="focus">
+          <li><span>&gt;</span> Active Directory attack paths</li>
+          <li><span>&gt;</span> Red team and detection validation</li>
+          <li><span>&gt;</span> Infrastructure and network VAPT</li>
+          <li><span>&gt;</span> OT / ICS security assessment</li>
+          <li><span>&gt;</span> Technical reporting and training</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <h2><span class="idx">02</span> Experience</h2>
+      <div class="timeline">
+        <article class="job">
+          <div class="job-head">
+            <h3>Associate (Cyber) <span class="at">@ BDO India</span></h3>
+            <span class="date">Jun 2025 – Present</span>
+          </div>
+          <ul>
+            <li>Active Directory and infrastructure penetration testing for an Indian multinational mining company across 300+ endpoints, with roughly 80% reduction in critical findings after remediation.</li>
+            <li>OT security assessment across 4–5 plant sites for a mining organisation, running Nessus vulnerability assessments on ICS and OT assets and implementing controls to cut operational risk.</li>
+            <li>Month-long red team assessment for a private Indian bank, covering NAC bypass, credential-based compromise of a public-facing ADFS portal and escalation to critical database systems.</li>
+            <li>Led malware audit and infrastructure VAPT for a leading PSU bank across 600+ endpoints, identifying 10 unique critical vulnerabilities and supporting remediation.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Cyber Security Analyst <span class="at">@ Indian Cyber Security Solutions (ICSS)</span></h3>
+            <span class="date">Jun 2024 – Jun 2025</span>
+          </div>
+          <ul>
+            <li>Trained global clients in CPENT and OSCP concepts, improving their red teaming proficiency by 75%.</li>
+            <li>Delivered VAPT (WAPT and NPT) for clients across industries, reducing exposure by up to 80%.</li>
+            <li>Trained 70+ students in WAPT, ethical hacking and NPT through hands-on labs and live demos.</li>
+            <li>Ran tailored security assessments to assess and improve client security frameworks.</li>
+            <li>Mentored and managed interns, handling task delegation.</li>
+            <li>Facilitated a 40-hour ethical hacking bootcamp for 40 students at Swami Vivekananda University.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ENGAGEMENTS -->
+    <section id="engagements" class="section">
+      <h2><span class="idx">03</span> Selected engagements</h2>
+      <div class="cards">
+        <div class="card">
+          <span class="tag red">Red Team</span>
+          <h3>Private Bank Red Team</h3>
+          <p>Bypassed NAC, compromised a public-facing ADFS portal via credential attacks and reached critical database systems to test detection and incident response.</p>
+          <span class="meta">Duration: 1 month</span>
+        </div>
+        <div class="card">
+          <span class="tag">AD + Infra</span>
+          <h3>Mining Company AD Pentest</h3>
+          <p>Domain and network assessment across 300+ endpoints; remediation drove about an 80% drop in critical findings.</p>
+          <span class="meta">Scope: 300+ endpoints</span>
+        </div>
+        <div class="card">
+          <span class="tag amber">OT / ICS</span>
+          <h3>Multi-Plant OT Assessment</h3>
+          <p>Nessus-based vulnerability assessment of ICS and OT assets across 4–5 plant sites, plus security controls to reduce operational risk.</p>
+          <span class="meta">Scope: 4–5 plant sites</span>
+        </div>
+        <div class="card">
+          <span class="tag">VAPT</span>
+          <h3>PSU Bank Malware Audit + VAPT</h3>
+          <p>Led malware audit and infrastructure VAPT; found 10 unique critical vulnerabilities and shrank the attack surface via remediation support.</p>
+          <span class="meta">Scope: 600+ endpoints</span>
+        </div>
+      </div>
+      <p class="note">Client names are withheld for confidentiality.</p>
+    </section>
+
+    <!-- CERTS -->
+    <section id="certs" class="section">
+      <h2><span class="idx">04</span> Certifications</h2>
+      <div class="certs">
+        <div class="cert"><b>ISA/IEC 62443 CFS</b><span>International Society of Automation</span><em>Mar 2026</em></div>
+        <div class="cert"><b>CRTA</b><span>CyberWarFare Labs</span><em>Nov 2025</em></div>
+        <div class="cert"><b>PT1</b><span>TryHackMe</span><em>Aug 2025</em></div>
+        <div class="cert"><b>CRTP</b><span>Altered Security</span><em>Dec 2024</em></div>
+        <div class="cert"><b>ICCA</b><span>INE</span><em>Sep 2024</em></div>
+        <div class="cert"><b>eJPT</b><span>INE</span><em>Jul 2024</em></div>
+        <div class="cert"><b>Certified AppSec Practitioner</b><span>The SecOps Group</span><em>Jun 2023</em></div>
+        <div class="cert"><b>CEH Practical</b><span>EC-Council</span><em>Jan 2023</em></div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <h2><span class="idx">05</span> Skills</h2>
+      <div class="skills">
+        <div class="skill-group">
+          <h3>Pen testing</h3>
+          <div class="chips"><span>Metasploit</span><span>Nmap</span><span>Burp Suite</span><span>Nessus</span><span>Acunetix</span><span>OWASP ZAP</span><span>Wireshark</span><span>API testing</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Active Directory</h3>
+          <div class="chips"><span>BloodHound</span><span>SharpHound</span><span>PowerView</span><span>Mimikatz</span><span>Impacket</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Scripting</h3>
+          <div class="chips"><span>Python</span><span>Bash</span><span>PowerShell</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Operating systems</h3>
+          <div class="chips"><span>Kali</span><span>Parrot OS</span><span>Ubuntu</span><span>Windows</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Soft skills</h3>
+          <div class="chips"><span>Technical writing</span><span>Report creation</span><span>Team leadership</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+      <h2><span class="idx">06</span> Education</h2>
+      <div class="edu">
+        <div><b>B.Tech, Computer Science &amp; Engineering</b><span>Calcutta Institute of Engineering and Management</span><em>Jun 2023 · 9.3 CGPA</em></div>
+        <div><b>AISSCE</b><span>Kendriya Vidyalaya Sangathan</span><em>Mar 2019 · 8.0 CGPA</em></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <h2><span class="idx">07</span> Contact</h2>
+      <p>Open to conversations about red teaming, AD security and OT assessments.</p>
+      <div class="cta">
+        <a class="btn" href="mailto:tishanguharoy2002@gmail.com">tishanguharoy2002@gmail.com</a>
+        <a class="btn ghost" href="https://linkedin.com/in/redsxght" target="_blank" rel="noopener">linkedin.com/in/redsxght</a>
+      </div>
+      <p class="loc">Kolkata, India</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; <span id="year"></span> Tishan Guha Roy</span>
+    <span class="dim">built with plain HTML, CSS and JS</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
