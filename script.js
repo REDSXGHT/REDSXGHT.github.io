@@ -78,7 +78,9 @@
     }
   }
 
-  if (reduce) { el.textContent = lines[0]; } else { run(); }
+  // Typing and text changes always run; only the shaky glitch and the
+  // background rain are switched off for reduced-motion users (see CSS / below).
+  run();
 
   // Count-up stats
   function countUp(node) {
